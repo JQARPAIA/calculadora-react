@@ -17,8 +17,16 @@
 .number { background: #48e;}
 .number:hover { background: rgb(39, 78, 136)}
 
-.clear-button { color: #fff; background: #c90505; }
+.clear-button { 
+  color: #fff;
+  background: #c90505;
+  flex: 4 1; 
+}
 .clear-button:hover { background: #720101; }
+.delete-button { 
+  color: #fff;
+  background: #c90505;}
+.delete-button:hover { background: #720101; }
 
 .operator { background: #6fad0a; }
 .operator:hover { background: #3d6104; }
