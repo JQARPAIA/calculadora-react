@@ -5,7 +5,7 @@ import Screen from './Screen'
 
 /* eslint-disable */
 function Calculadora() {
-  const [input, setInput]= useState('')
+  const [input, setInput]= useState('0')
   
   const isOperador = (val) => {
     return val === '-' || val === '+' || val === '*' || val === '/'
@@ -21,7 +21,7 @@ function Calculadora() {
   }
 
   const deleteLastInput = () => {
-    const inputArray = input.split('')
+    const inputArray = input.toString().split('')
     const deleted = inputArray.pop()
     setInput(inputArray.join(''))
   }
@@ -51,7 +51,7 @@ function Calculadora() {
         </Button>
         <Button
           handleClick={deleteLastInput}
-          isClearButton={true}
+          isDeleteButton={true}
         >
           ⬅ 
         </Button>
