@@ -1,10 +1,10 @@
 import './styles/App.css';
-import Calculadora from './components/Calculadora'
+import Calculator from './components/Calculadora'
 
 function App() {
   return (
     <div className='container'>
-      <Calculadora />
+      <Calculator />
       <div className='creator-link'>
         Created by 
         <a href='https://josearpaiaq.netlify.app/'>Jose Arpaia Q</a>

@@ -1,7 +1,11 @@
 {
-  "name": "calculadora",
+  "name": "calculadora_en_react",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Jose Arpaia",
+    "github-user": "josearpaiaq"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",

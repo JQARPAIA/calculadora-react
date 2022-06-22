@@ -3,27 +3,35 @@ import '../styles/Calculadora.css'
 import Button from './Button'
 import Screen from './Screen'
 
-/* eslint-disable */
-function Calculadora() {
+function Calculator() {
   const [input, setInput]= useState('0')
   
-  const isOperador = (val) => {
+  const isOperator = (val) => {
     return val === '-' || val === '+' || val === '*' || val === '/'
   }
   
   const updateScreen = (event) => {
-    const lastInput = input[input.length - 1]
+    const lastInput = input[input.length - 1] ?? ''
     const newInput = event.target.innerHTML
-    if (!input && isOperador(newInput)) return
-    if (input.toString().includes('+' || '-' || '*' || '/') && isOperador(newInput)) return
-    if (isOperador(lastInput) && isOperador(newInput)) return
+
+    const containsOperator = input.toString().split('').find(val => val === '+' || val === '-' || val === '*' || val === '/')
+    const lastInputIsOperator = isOperator(lastInput)
+    const newInputIsOperator = isOperator(newInput)
+
+    if (input === '0') return setInput(newInput)
+    if (isOperator(newInput) && input === '') return
+    if (newInputIsOperator && containsOperator) return
+    if (lastInputIsOperator && newInputIsOperator) return
+
     setInput(input + newInput)
   }
 
   const deleteLastInput = () => {
     const inputArray = input.toString().split('')
-    const deleted = inputArray.pop()
+    inputArray.pop()
     setInput(inputArray.join(''))
+    console.log(input)
+    console.log(typeof input)
   }
 
   const calculateResult = () => {
@@ -44,7 +52,7 @@ function Calculadora() {
       </Screen>
       <div className="row">
         <Button
-          handleClick={() => setInput('')}
+          handleClick={() => setInput('0')}
           isClearButton={true}
         >
           CLEAR
@@ -153,4 +161,4 @@ function Calculadora() {
   )
 }
 
-export default Calculadora;
+export default Calculator;
